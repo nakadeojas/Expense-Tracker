@@ -8,4 +8,7 @@ A command-line expense tracker written in Python.
 - Saves to a JSON file and recovers from a damaged file
 
 ## Run it
+
+```bash
 python3 expense_tracker.py
+```
