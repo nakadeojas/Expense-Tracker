@@ -226,7 +226,7 @@ def main():
         elif choice == "6":
             search(tracker)
         elif choice == "7":
-            print("\nGoodbye!")
+            print("\nGoodbye!!!")
             break
         else:
             print("Choose between 1-7")
@@ -235,4 +235,4 @@ if __name__ == "__main__":
     try:
         main()
     except (KeyboardInterrupt, EOFError):
-        print("\n\nGoodbye!")
+        print("\n\nGoodbye!!!")
