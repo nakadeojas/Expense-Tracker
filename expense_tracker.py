@@ -9,10 +9,6 @@ class Expense:
     def __init__(self, item, amount, category = "", created = None):
         if not isinstance(item, str) or not item.strip():
             raise ValueError("Invalid item name")
-        if not isinstance(amount, (int, float)) or isinstance(amount, bool):
-            raise TypeError("Amount must be valid number")
-        if amount <= 0 or not math.isfinite(amount):
-            raise ValueError("Amount must be a finite number greater than 0")
         if not isinstance(category, str):
             raise TypeError("Invalid category")
         
@@ -24,6 +20,19 @@ class Expense:
             self.category = "General"
         else:
             self.category = category.strip()
+
+    @property
+    def amount(self):
+        return self._amount
+
+    @amount.setter
+    def amount(self, value):
+        if not isinstance(value, (int, float)) or isinstance(value, bool):
+            raise TypeError("Amount must be valid number")
+        if value <= 0 or not math.isfinite(value):
+            raise ValueError("Amount must be a finite number greater than 0")
+
+        self._amount = value
 
     def __str__(self):
         return f"{self.item} | {self.category} | ₹{self.amount:.2f} | {self.created}"
